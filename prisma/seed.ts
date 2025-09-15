@@ -54,8 +54,7 @@ async function main() {
     // Steve (111)
     { id: 10, name: 'CyberTeam',     managerId: 111 },
     { id: 11, name: 'ThreatOps',     managerId: 111 },
-    // Kendall (222)
-    { id: 12, name: 'Elevates',      managerId: 222 },
+    { id: 12, name: 'Elevates',      managerId: 111 },
     // Ursula (555)
     { id: 20, name: 'DataScientists',   managerId: 555 },
     { id: 21, name: 'MLOps',            managerId: 555 },
@@ -122,8 +121,6 @@ async function main() {
     50: [1, 2, 3],
     51: [4, 5, 13],
   }
-
-  // Apply the team→entitlements mapping
   for (const [teamId, entIds] of Object.entries(teamEntitlementMap)) {
     await prisma.team.update({
       where: { id: Number(teamId) },

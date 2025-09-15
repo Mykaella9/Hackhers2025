@@ -69,8 +69,7 @@ async function main() {
     { id: 42, name: 'Elevates',          managerId: 444 },
     // Kendall (222)
     { id: 50, name: 'RiskTeam',              managerId: 222 },
-    { id: 51, name: 'ComplianceTeam',        managerId: 222 },
-    { id: 52, name: 'Auditors',              managerId: 222 }
+    { id: 51, name: 'ComplianceTeam',        managerId: 222 }
   ]
   await prisma.team.createMany({ data: teams })
 
@@ -108,12 +107,20 @@ async function main() {
 
   // Define exactly which entitlements each team should get
   const teamEntitlementMap: Record<number, number[]> = {
-    10: [1, 2, 3],   // CyberTeam gets MFA, Phishing, Firewall
-    11: [4, 5],      // ThreatOps gets Documentation, Spreadsheet
-    12: [6, 7, 8],   // Elevate (Kendall) gets HumanAPI, ChangeWarrior, MobileRelease
-    20: [9, 10, 11], // DataScientists gets Captain, PushIt, CtrlAlt
-    21: [12, 13],    // MLOps gets TheLastDebugger, HumanPipeline
-    // ... add entries for every team ID you want
+    10: [1, 2, 3],
+    11: [3, 6, 12],      
+    12: [1, 4, 11],  
+    20: [5, 13, 14],
+    21: [13, 14, 15],  
+    22: [1, 4, 11],  
+    30: [10, 11, 12],   
+    31: [4, 10, 12],  
+    32: [1, 4, 11],   
+    40: [7, 8, 9],   
+    41: [10, 11, 13],   
+    42: [1, 4, 11],   
+    50: [1, 2, 3],   
+    51: [4, 5, 13],  
   }
 
   // Apply the mapping

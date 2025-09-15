@@ -20,30 +20,32 @@ async function main() {
   await prisma.entitlement.deleteMany()
 
   // Managers
-  const managers = range(3).map((i) => ({
-    id: i + 1, // manual ids because schema uses Int @id (no autoincrement)
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName(),
-  }))
+  const managers = [
+  { id: 111, firstName: "Steve", lastName: "Steinour" },
+  { id: 222, firstName: "Kendall", lastName: "Kowalski" },
+  { id: 333, firstName: "Geoff", lastName: "Preston" },
+  { id: 444, firstName: "Navpreet", lastName: "Jatana" },
+  { id: 555, firstName: "Ursula", lastName: "Cottone" }
+  ]
   await prisma.manager.createMany({ data: managers })
 
   // Entitlements
   const entitlementCatalog = [
-    { name: 'GitHub: Repo Read', type: 'dev', level: 1 },
-    { name: 'GitHub: Repo Write', type: 'dev', level: 2 },
-    { name: 'GitHub: Org Admin', type: 'dev', level: 4 },
-    { name: 'Jira: Browse Projects', type: 'pm', level: 1 },
-    { name: 'Jira: Create Issues', type: 'pm', level: 2 },
-    { name: 'Jira: Project Admin', type: 'pm', level: 4 },
-    { name: 'Prod DB: Read', type: 'data', level: 2 },
-    { name: 'Prod DB: Write', type: 'data', level: 3 },
-    { name: 'S3 Bucket: Read', type: 'cloud', level: 1 },
-    { name: 'S3 Bucket: Write', type: 'cloud', level: 2 },
-    { name: 'IAM: ViewOnly', type: 'cloud', level: 1 },
-    { name: 'IAM: PowerUser', type: 'cloud', level: 4 },
-    { name: 'Snowflake: Reader', type: 'data', level: 1 },
-    { name: 'Snowflake: Writer', type: 'data', level: 2 },
-    { name: 'Kubernetes: Namespace Admin', type: 'platform', level: 3 },
+    { name: 'MultiFactorMagician', type: 'Cyber', level: 1 },
+    { name: 'PhishingSlayer', type: 'Cyber', level: 2 },
+    { name: 'FirewallWhisperer', type: 'Cyber', level: 4 },
+    { name: 'Documentation Ninja', type: 'BSA', level: 1 },
+    { name: 'Spreadsheet Sorcerer', type: 'BSA', level: 2 },
+    { name: 'HumanAPI', type: 'BSA', level: 4 },
+    { name: 'ChangeWarrior', type: 'IT', level: 2 },
+    { name: 'MobileReleaseRangler', type: 'IT', level: 3 },
+    { name: 'CaptainCoordinate', type: 'IT', level: 1 },
+    { name: 'PushItRealGood', type: 'Dev', level: 2 },
+    { name: 'CtrlAltDelete', type: 'Dev', level: 1 },
+    { name: 'TheLastDebugger', type: 'Dev', level: 4 },
+    { name: 'HumanPipeline', type: 'MLOps', level: 1 },
+    { name: 'CloudCostDenier', type: 'MLOps', level: 2 },
+    { name: 'DockerDabbler', type: 'MLOps', level: 3 },
   ]
   const entitlementsData = entitlementCatalog.map((e, i) => ({
     id: i + 1,

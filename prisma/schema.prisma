@@ -60,6 +60,7 @@ model Entitlement {
   name  String
   type  String
   level Int
+  description String
 
   // Back-refs for the two separate M:N relations
   teams Team[] @relation("TeamEntitlements")

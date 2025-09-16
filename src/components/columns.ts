@@ -6,13 +6,13 @@ export type User = {
   email: string
 }
 
-export const columns: ColumnDef<User>[] = [
+export const columns: ColumnDef<{id: string; name: string}>[] = [
+  {
+    accessorKey: "id",
+    header: "ID",
+  },
   {
     accessorKey: "name",
     header: "Name",
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
   },
 ]

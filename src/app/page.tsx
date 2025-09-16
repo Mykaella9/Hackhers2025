@@ -17,7 +17,7 @@ export default async function Home(props: {
   return (
     <div className="bg-[#7ECF1C]">
       <Header/>
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <main className="flex flex-col gap-8 row-start-2 items-center">
         <div>
             <Grid teams={teams} />
         </div>

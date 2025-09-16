@@ -10,6 +10,8 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 
+import PopButton from "@/components/PopButton"
+
 export default function TeamBlock() {
     return (
         <div className="" style={{ backgroundColor: "#7ECF1C" }}>
@@ -17,7 +19,9 @@ export default function TeamBlock() {
                 <CardHeader>
                     <CardTitle>Card Title</CardTitle>
                     <CardDescription>Card Description</CardDescription>
-                    <CardAction>Card Action</CardAction>
+                    <CardAction>
+                        <PopButton/>
+                    </CardAction>
                 </CardHeader>
                 <CardContent>
                     <p>Card Content</p>

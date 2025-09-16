@@ -12,9 +12,9 @@ import {
 
 
 import PopButton from "@/components/PopButton"
-import { Team } from "@prisma/client";
+import { Team, User } from "@prisma/client";
 
-export default function TeamBlock( { team }: { team: Team }) {
+export default function TeamBlock( { team }: { team: Team  & { users: User[] } } ) {
     return (
         <div className="" style={{ backgroundColor: "#7ECF1C" }}>
             <Card>
@@ -22,7 +22,7 @@ export default function TeamBlock( { team }: { team: Team }) {
                     <CardTitle>{team.name}</CardTitle>
                     <CardDescription>Card Description</CardDescription>
                     <CardAction>
-                        <PopButton/>
+                        <PopButton users ={team.users}/>
                     </CardAction>
                 </CardHeader>
                 <CardContent>

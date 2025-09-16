@@ -182,6 +182,5 @@ export async function getTeams(query?: string, page: number = 1) {
 // }
 
 
-
             
 

@@ -5,26 +5,7 @@ import type {User} from '@prisma/client';
 import type { Entitlement } from '@prisma/client';
 
 const itemsPerPage = 10;
-// export async function getManagers(query: string, page: number) {
-//     const offset = (page - 1) * itemsPerPage;
-//     try{
-//         const managers: Manager[] = await prisma.$queryRaw<Manager[]>`
-//         SELECT 
-//             id,
-//             firstName,
-//             lastName,
-//             teams,
-//             users
-//         FROM Manager
-//         ORDER BY createdAt DESC
-//         LIMIT ${itemsPerPage} OFFSET ${offset};
-//         `;
-//         return managers;
-//     } catch (error) {
-//         console.error("Error fetching managers:", error);
-//         throw new Error("Could not fetch managers");
-//     }
-// }
+
 
 export async function getTeams(query?: string, page: number = 1) {
     const offset = (page - 1) * itemsPerPage;
@@ -57,6 +38,27 @@ export async function getTeams(query?: string, page: number = 1) {
       throw new Error("Could not fetch teams");
     }
   }
+
+// NEW FUNCTION: fetch a single user with their entitlements
+export async function getUserEntitlements(userId: number) {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      include: {
+        entitlements: true, // fetch user's entitlements
+      },
+    });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    return user;
+  } catch (error) {
+    console.error("Error fetching user entitlements:", error);
+    throw new Error("Could not fetch user entitlements");
+  }
+}
 
 // export async function getUsers(query: string, page: number) {   
 //     const offset = (page - 1) * itemsPerPage;

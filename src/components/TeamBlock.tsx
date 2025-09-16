@@ -10,8 +10,7 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 
-
-import PopButton from "@/components/PopButton"
+import { OpenButton, AddButton, CompareButton } from "@/components/PopButton"
 import { Team } from "@prisma/client";
 
 export default function TeamBlock( { team }: { team: Team }) {
@@ -22,14 +21,20 @@ export default function TeamBlock( { team }: { team: Team }) {
                     <CardTitle>{team.name}</CardTitle>
                     <CardDescription>Card Description</CardDescription>
                     <CardAction>
-                        <PopButton/>
+                        <OpenButton/>
                     </CardAction>
                 </CardHeader>
                 <CardContent>
+                    <div className="flex items-center justify-between">
                     <p>Card Content</p>
+                    <AddButton/>
+                    </div>
                 </CardContent>
                 <CardFooter>
+                    <div className="flex items-center justify-between w-full">
                     <p>Card Footer</p>
+                    <CompareButton/>
+                    </div>
                 </CardFooter>
             </Card>
         </div>

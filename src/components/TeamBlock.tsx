@@ -10,14 +10,16 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 
-import PopButton from "@/components/PopButton"
 
-export default function TeamBlock() {
+import PopButton from "@/components/PopButton"
+import { Team } from "@prisma/client";
+
+export default function TeamBlock( { team }: { team: Team }) {
     return (
         <div className="" style={{ backgroundColor: "#7ECF1C" }}>
             <Card>
                 <CardHeader>
-                    <CardTitle>Card Title</CardTitle>
+                    <CardTitle>{team.name}</CardTitle>
                     <CardDescription>Card Description</CardDescription>
                     <CardAction>
                         <PopButton/>

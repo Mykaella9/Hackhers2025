@@ -37,7 +37,7 @@ async function main() {
     { id: 8,  name: 'MobileReleaseRangler',  type: 'IT',    level: 3, description: 'Grants access to Flutter.' },
     { id: 9,  name: 'CaptainCoordinate',     type: 'IT',    level: 1, description: 'Grants access to team calendars and ADO boards.' },
     { id:10,  name: 'PushItRealGood',        type: 'Dev',   level: 2, description: 'Manages GitHub access and ADO.' },
-    { id:11,  name: 'CtrlAltDelete',         type: 'Dev',   level: 1, description: 'Grants access to locked or degraded workflows in ServiceNow.' },
+    { id:11,  name: 'CtrlAltElite',         type: 'Dev',   level: 1, description: 'Grants access to locked or degraded workflows in ServiceNow.' },
     { id:12,  name: 'TheLastDebugger',       type: 'Dev',   level: 4, description: 'Grants access to Splunk logs, etc.' },
     { id:13,  name: 'HumanPipeline',         type: 'MLOps', level: 1, description: 'Grants access to onboarding, offboarding, and role changes in ServiceNow HR Service Delivery.' },
     { id:14,  name: 'CloudCostDenier',       type: 'MLOps', level: 2, description: 'Grants access to AWS and Azure by enforcing policies through ServiceNow Cloud Insights.' },
@@ -47,12 +47,12 @@ async function main() {
 
   // Teams — deterministic
   const teams = [
-    { id: 10, name: 'CyberTeam',     managerId: 555 },
-    { id: 20, name: 'DataScientists',   managerId: 555 },
+    { id: 10, name: 'Cyber',     managerId: 555 },
+    { id: 20, name: 'Data Scientists',   managerId: 555 },
     { id: 30, name: 'MLOps',            managerId: 555 },
-    { id: 40, name: 'Elevates',         managerId: 555 },
-    { id: 50, name: 'SeniorDevelopers',     managerId: 555 },
-    { id: 60, name: 'BusinessAnalysts',     managerId: 555 },
+    { id: 40, name: 'QA',         managerId: 555 },
+    { id: 50, name: 'Developers',     managerId: 555 },
+    { id: 60, name: 'Business Analysts',     managerId: 555 },
   ]
   await prisma.team.createMany({ data: teams })
 

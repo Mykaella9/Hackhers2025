@@ -28,9 +28,9 @@ type PopButtonProps = {
 
 export function OpenButton({users}: PopButtonProps) {
     return (
-        <div className="bg-[#7ECF1C] rounded-xl w-14 p-1 text-center">
+        <div className="bg-[#034F54] rounded-xl w-30 p-2 text-center">
             <Popover>
-                <PopoverTrigger>Open</PopoverTrigger>
+                <PopoverTrigger className="text-white font-extrabold">Open</PopoverTrigger>
                 <PopoverContent className="w-[70vw] max-w-3xl h-[60vh] p-6 rounded-xl shadow-lg mx-auto my-12">
                     <h2 className="text-xl font-bold mb-4 text-center">Users</h2>
 
@@ -52,9 +52,9 @@ export function OpenButton({users}: PopButtonProps) {
 
 export function AddButton({users}: PopButtonProps) {
     return (
-        <div className="bg-[#034F54] rounded-xl w-14 p-1 text-center">
+        <div className="bg-[#034F54] rounded-xl w-30 p-2 text-center">
             <Popover>
-                <PopoverTrigger className="text-white">Add</PopoverTrigger>
+                <PopoverTrigger className="text-white font-extrabold">Add</PopoverTrigger>
                 <PopoverContent className="w-[70vw] max-w-3xl h-[60vh] p-6 rounded-xl shadow-lg mx-auto my-12">
                     <h2 className="text-xl font-bold mb-4 text-center">Users</h2>
 
@@ -98,10 +98,11 @@ type CompareButtonProps = {
   
   export function CompareButton({ users }: CompareButtonProps) {
     return (
-      <div className="bg-[#034F54] rounded-xl px-4 py-2 text-center leading-none">
+      <div className="bg-[#034F54] rounded-xl w-30 p-2 text-center">
         <Popover>
-          <PopoverTrigger className="text-white">Compare</PopoverTrigger>
-          <PopoverContent className="w-[70vw] max-w-3xl h-[70vh] p-6 rounded-xl shadow-lg mx-auto my-12">
+          <PopoverTrigger className="text-white font-extrabold">Compare</PopoverTrigger>
+          <PopoverContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                     w-[70vw] max-w-3xl h-[70vh] p-6 rounded-xl shadow-lg">
             <h2 className="text-xl font-bold mb-4 text-center">Compare Users</h2>
             <CompareForm users={users} />
           </PopoverContent>
@@ -117,9 +118,9 @@ type EntButtonProps = {
 
 export function EntButton({ entitlements }: EntButtonProps) {
     return (
-        <div className="bg-[#034F54] rounded-xl px-4 py-2 text-center leading-none">
+        <div className="bg-[#034F54] rounded-xl w-30 p-2 text-center">
             <Popover>
-                <PopoverTrigger className="text-white">Entitlements</PopoverTrigger>
+                <PopoverTrigger className="text-white font-extrabold">Entitlements</PopoverTrigger>
                 <PopoverContent className="w-[70vw] max-w-3xl h-[60vh] p-6 rounded-xl shadow-lg mx-auto my-12">
                     <h2 className="text-xl font-bold mb-4 text-center">Users</h2>
 
@@ -130,8 +131,6 @@ export function EntButton({ entitlements }: EntButtonProps) {
                             data={entitlements.map(ent => ({
                                 id: ent.id,
                                 name: ent.name,
-                                type: ent.type,
-                                level: ent.level,
                                 description: ent.description,
                             }))}
                         />

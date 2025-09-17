@@ -48,24 +48,26 @@ export function CompareForm({ users }: CompareFormProps) {
   }))
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <Selects
-        placeholder="Select User A"
-        value={userA}
-        onValueChange={setUserA}
-        options={options}
-      />
-      <Selects
-        placeholder="Select User B"
-        value={userB}
-        onValueChange={setUserB}
-        options={options}
-      />
-      <SubmitButton type="submit">Compare</SubmitButton>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4">
+      <div className="grid grid-cols-2 gap-2 w-full max-w-md mx-auto">
+        <Selects
+          placeholder="Select User A"
+          value={userA}
+          onValueChange={setUserA}
+          options={options}
+        />
+        <Selects
+          placeholder="Select User B"
+          value={userB}
+          onValueChange={setUserB}
+          options={options}
+        />
+      </div>
+      <SubmitButton className="bg-[#034F54] rounded-xl w-30 p-2 text-center text-white font-extrabold" type="submit">Compare</SubmitButton>
 
       {results && (
-        <div className="mt-6 grid grid-cols-2 gap-6">
-          <div>
+        <div className="mt-6 grid grid-cols-2 gap-6 w-full max-w-2xl">
+          <div className="text-center">
             <h3 className="font-semibold mb-2">
               Only {options.find(o => o.value === userA)?.label}
             </h3>
@@ -77,7 +79,7 @@ export function CompareForm({ users }: CompareFormProps) {
               )}
             </ul>
           </div>
-          <div>
+          <div className="text-center">
             <h3 className="font-semibold mb-2">
               Only {options.find(o => o.value === userB)?.label}
             </h3>

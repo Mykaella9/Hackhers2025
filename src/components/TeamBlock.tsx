@@ -12,9 +12,10 @@ import {
 
 
 import { Team, User, Entitlement} from "@prisma/client";
-import {AddButton, CompareButton} from "@/components/PopButton"
+import {AddButton, CompareButton,} from "@/components/PopButton"
 import {OpenButton} from "@/components/PopButton";
 import {EntButton} from "@/components/PopButton";
+import {CompareDialog, OpenDialog, AddDialog, EntDialog} from "@/components/DialogBox";
 
 
 
@@ -23,25 +24,25 @@ export default function TeamBlock( { team }: { team: Team & { users: User[]; ent
         <div className="" style={{ backgroundColor: "#7ECF1C" }}>
             <Card>
                 <CardHeader>
-                    <CardTitle>{team.name}</CardTitle>
-                    <CardDescription>Card Description</CardDescription>
-                    <CardAction>
-                        <OpenButton users ={team.users}/>
-                        <EntButton entitlements={team.entitlements} />
-                    </CardAction>
+                    <CardTitle className="text-2xl text-center mb-1 font-bold">{team.name}</CardTitle>
                 </CardHeader>
+
                 <CardContent>
-                    <div className="flex items-center justify-between">
-                        <p>Card Content</p>
-                        <AddButton users ={team.users}/>
+                    <div className="grid grid-cols-2 gap-4">
+                    <div className="flex justify-center">
+                        <OpenDialog users={team.users} />
+                    </div>
+                    <div className="flex justify-center">
+                        <EntDialog entitlements={team.entitlements} />
+                    </div>
+                    <div className="flex justify-center">
+                        <AddDialog users={team.users} />
+                    </div>
+                    <div className="flex justify-center">
+                        <CompareDialog users={team.users} />
+                    </div>
                     </div>
                 </CardContent>
-                <CardFooter>
-                    <div className="flex items-center justify-between w-full">
-                        <p>Card Footer</p>
-                        <CompareButton users ={team.users}/>
-                    </div>
-                </CardFooter>
             </Card>
         </div>
     );
